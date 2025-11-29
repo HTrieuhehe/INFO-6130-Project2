@@ -13,6 +13,8 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
+import android.os.SystemClock;
+
 @RunWith(AndroidJUnit4.class)
 public class Project2Test {
     @Rule
@@ -83,6 +85,8 @@ public class Project2Test {
 
         onView(withId(R.id.activityChangeTextBtn))
                 .perform(click());
+
+        SystemClock.sleep(800);
 
         onView(withId(R.id.show_text_view))
                 .check(matches(withText("abcdef")));
