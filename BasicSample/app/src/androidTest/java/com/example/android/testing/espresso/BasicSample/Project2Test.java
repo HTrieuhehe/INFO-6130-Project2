@@ -25,23 +25,19 @@ public class Project2Test {
     public void testChangeTextEmpty() {
         onView(withId(R.id.editTextUserInput))
                 .perform(typeText(""), closeSoftKeyboard());
-
         onView(withId(R.id.changeTextBt))
                 .perform(click());
-
         onView(withId(R.id.textToBeChanged))
                 .check(matches(withText("")));
     }
 
-    // Test 5: Empty input + Open Activity
     @Test
     public void testOpenActivityEmpty() {
         onView(withId(R.id.editTextUserInput))
                 .perform(typeText(""), closeSoftKeyboard());
-
         onView(withId(R.id.activityChangeTextBtn))
                 .perform(click());
-
+        SystemClock.sleep(800);
         onView(withId(R.id.show_text_view))
                 .check(matches(withText("")));
     }
@@ -62,6 +58,7 @@ public class Project2Test {
                 .perform(typeText("123"), closeSoftKeyboard());
         onView(withId(R.id.activityChangeTextBtn))
                 .perform(click());
+        SystemClock.sleep(800);
         onView(withId(R.id.show_text_view))
                 .check(matches(withText("123")));
     }
@@ -70,10 +67,8 @@ public class Project2Test {
     public void testChangeTextAbcdef() {
         onView(withId(R.id.editTextUserInput))
                 .perform(typeText("abcdef"), closeSoftKeyboard());
-
         onView(withId(R.id.changeTextBt))
                 .perform(click());
-
         onView(withId(R.id.textToBeChanged))
                 .check(matches(withText("abcdef")));
     }
@@ -82,12 +77,9 @@ public class Project2Test {
     public void testOpenActivityAbcdef() {
         onView(withId(R.id.editTextUserInput))
                 .perform(typeText("abcdef"), closeSoftKeyboard());
-
         onView(withId(R.id.activityChangeTextBtn))
                 .perform(click());
-
         SystemClock.sleep(800);
-
         onView(withId(R.id.show_text_view))
                 .check(matches(withText("abcdef")));
     }
