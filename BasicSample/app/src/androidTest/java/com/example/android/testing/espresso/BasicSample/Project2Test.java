@@ -45,6 +45,26 @@ public class Project2Test {
     }
 
     @Test
+    public void testChangeText123() {
+        onView(withId(R.id.editTextUserInput))
+                .perform(typeText("123"), closeSoftKeyboard());
+        onView(withId(R.id.changeTextBt))
+                .perform(click());
+        onView(withId(R.id.textToBeChanged))
+                .check(matches(withText("123")));
+    }
+
+    @Test
+    public void testOpenActivity123() {
+        onView(withId(R.id.editTextUserInput))
+                .perform(typeText("123"), closeSoftKeyboard());
+        onView(withId(R.id.activityChangeTextBtn))
+                .perform(click());
+        onView(withId(R.id.show_text_view))
+                .check(matches(withText("123")));
+    }
+
+    @Test
     public void testChangeTextAbcdef() {
         onView(withId(R.id.editTextUserInput))
                 .perform(typeText("abcdef"), closeSoftKeyboard());
